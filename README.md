@@ -32,7 +32,7 @@ sudo apt install php8.2-{bcmath,fpm,xml,mysql,zip,intl,ldap,gd,cli,bz2,curl,mbst
 Change some value to match magento settings
 
 ```
-sudo nano /etc/php/8.1/fpm/php.ini
+sudo nano /etc/php/8.2/fpm/php.ini
 ```
 
 Edit: 
@@ -43,7 +43,7 @@ zlib.output_compression = On
 ```
 
 ```
-sudo nano /etc/php/8.1/cli/php.ini
+sudo nano /etc/php/8.2/cli/php.ini
 ```
 and same edit as above
 
@@ -164,7 +164,7 @@ composer create-project --repository=https://repo.magento.com/ magento/project-c
 Here is the latest magento ver installation command if you want to install lower vers, as follows:
 
 ```
-composer create-project --repository=https://repo.magento.com/ magento/project-community-edition=2.4.4 <home/keij/www/magento246>
+composer create-project --repository=https://repo.magento.com/ magento/project-community-edition=2.4.4 home/keij/www/magento246
 ```
 
 > Grant permission to magento folder
@@ -201,7 +201,7 @@ Create a virtual host for a magento site with command `sudo nano /etc/nginx/site
 Add this code to the configuration file just created:
 ```
 upstream fastcgi_backend {
-  server  unix:/run/php/php8.1-fpm.sock;
+  server  unix:/run/php/php8.2-fpm.sock;
 }
 
 server {
@@ -220,7 +220,7 @@ And save and exit the editor<br>
 Activate the newly created virtual host by creating a symlink to it in the /etc/nginx/sites-enabled directory:
 
 ```
-sudo ln -s /etc/nginx/sites-available/magento245 /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/magento246 /etc/nginx/sites-enabled
 ```
 
 ```
@@ -291,7 +291,7 @@ You can go to `http://magento246.local` to check your site magento
 Change the owner of the magento root installation directory to `my-user` with the command:
 
 ```
-sudo chown -R /home/keij/www/m245 my-user
+sudo chown -R /home/keij/www/magento246 my-user
 ```
 
 Change user run with nginx:
