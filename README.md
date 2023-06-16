@@ -307,6 +307,13 @@ Add your user to www-data group
 sudo adduser my-user www-data
 ```
 
+Change user run with php-fpm
+
+```
+sudo nano /etc/php/8.2/fpm/pool.d/www.conf
+```
+(Edit `user` to `keij`)
+
 And then restart some services like nginx, php
 
 ### 7. Conclusion
